@@ -1,0 +1,29 @@
+package java8;
+
+public class LambdaExample1 {
+
+	public static void main(String[] args) {
+
+		//Legacy 
+		
+		Runnable runnable = new Runnable() {
+
+			@Override
+			public void run() {
+				System.out.println("Inside Runnable1");
+			}
+		};
+		new Thread(runnable).start();
+		
+		
+		//Java8
+		Runnable runnableLambda = ()-> {System.out.println("Inside Runnable2");};
+		new Thread(runnableLambda).start();
+		
+		new Thread(()-> {System.out.println("Inside Runnable3");System.out.println("Inside Runnable3");}).start();
+	
+		new Thread(()-> System.out.println("Inside Runnable4")).start();
+		
+	}
+
+}
