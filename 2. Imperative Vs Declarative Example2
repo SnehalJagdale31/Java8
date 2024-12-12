@@ -26,9 +26,9 @@ public class ImperativeVsDeclarativeExample2 {
 		//Declarative approach
 		
 		List<Integer> uniqueList2 = integerList
-									.stream()
-									.distinct()
-									.collect(Collectors.toList());
+					    .stream()
+					    .distinct()
+					    .collect(Collectors.toList());
 		
 		System.out.println("uniqueList2: "+ uniqueList2);
 	}
