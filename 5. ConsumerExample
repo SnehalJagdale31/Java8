@@ -1,7 +1,7 @@
-package com.learnJava.functionalInterfaces;
+package com.java8.functionalInterface;
 
-import com.learnJava.data.Student;
-import com.learnJava.data.StudentDataBase;
+import com.java8.Student;
+import com.java8.StudentDataBase;
 
 import java.util.List;
 import java.util.function.Consumer;
