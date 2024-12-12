@@ -1,0 +1,23 @@
+package java8;
+
+import java.util.stream.IntStream;
+
+public class ImperativeVsDeclarative {
+
+	public static void main(String[] args) {
+
+		
+//		Imperative - How style of Programming
+		int sum =0;
+		for(int i=0; i<= 100; i++) {
+			sum+=i;
+		}
+		System.out.println("Sum using Imperative approach: "+ sum);
+
+
+
+//		Declarative - What style of programming
+		System.out.println( "Sum using Declarative approach:  "+ IntStream.rangeClosed(0, 100).sum());
+	}
+
+}
