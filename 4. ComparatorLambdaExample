@@ -6,7 +6,7 @@ public class ComparatorLambdaExample {
 
 	public static void main(String[] args) {
 
-//		Legacy
+//		Legacy  
 		Comparator<Integer> comparator = new Comparator<Integer>() {
 
 			@Override
