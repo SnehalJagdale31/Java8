@@ -1,0 +1,22 @@
+package java8;
+
+import java.util.List;
+import static java.util.stream.Collectors.toList;
+
+public class StramsMapExample {
+	
+	public static List<String> namesList(){
+		List<String> studentList = StudentDataBase.getAllStudents().stream()
+		.map(Student::getName)
+		.map(String::toUpperCase) 
+		.collect(toList());
+		return studentList;
+		
+	}
+
+	public static void main(String[] args) {
+		System.out.println(namesList());
+		
+	}
+
+}
