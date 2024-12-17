@@ -1,0 +1,35 @@
+package java8;
+
+import java.util.List;
+import java.util.Set;
+
+import static java.util.stream.Collectors.*;
+
+public class StreamsMapExample {
+
+	public static List<String> namesList(){
+		
+		return  StudentDataBase.getAllStudents().stream()//output: Stream<Student>
+		.map(Student::getName)//hear map will convert Stream<Student> to Stream<String>
+		.map(String::toUpperCase)//Stream<String>->upperCase operation on each input
+		.collect(toList());//output : List<String>
+		
+		
+	}
+    public static Set<String> namesSet(){
+		
+		return  StudentDataBase.getAllStudents().stream()//output: Stream<Student>
+		.map(Student::getName)//hear map will convert Stream<Student> to Stream<String>
+		.map(String::toUpperCase)//Stream<String>->upperCase operation on each input
+		.collect(toSet());//output : Set<String>
+		
+		
+	}
+	public static void main(String[] args) {
+
+		System.out.println(namesList());
+		System.out.println(namesSet());
+		
+	}
+
+}
