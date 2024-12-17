@@ -10,13 +10,27 @@ public class StreamFlatMapExample {
 				.stream()
 				.map(Student::getActivities)//Stream<List<String>>
 				.flatMap(List::stream)//Stream<String>
+				.sorted()
 				.collect(toList());
 		return studentActivites;
 		
 	}
+
+	public static long getStudentActivitiesCount(){
+		Long noOfStudentActivites = StudentDataBase.getAllStudents()
+				.stream()
+				.map(Student::getActivities)//Stream<List<String>>
+				.flatMap(List::stream)//Stream<String>
+				.distinct()//Stream<String> -> with distinct function performed
+				.count();
+		return noOfStudentActivites;
+		
+	}
+	
 	public static void main(String[] args) {
 
-		System.out.println(printStudentActivites());
+		System.out.println("printStudentActivites: "+printStudentActivites());
+		System.out.println("getStudentActivitiesCount: "+getStudentActivitiesCount());
 	}
 
 }
