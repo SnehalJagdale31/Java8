@@ -1,0 +1,29 @@
+package java8;
+
+public class StreamsMatchExample {
+	
+	public static Boolean allMatch() {
+		return StudentDataBase.getAllStudents()
+				.stream()
+				.allMatch(student -> student.getGpa()>=4);
+	}
+	
+	public static Boolean anyMatch() {
+		return StudentDataBase.getAllStudents()
+				.stream()
+				.anyMatch(student -> student.getGpa()>=3);
+	}
+
+	public static Boolean noneMatch() {
+		return StudentDataBase.getAllStudents()
+				.stream()
+				.noneMatch(student -> student.getGpa()>=3);
+	}
+	public static void main(String[] args) {
+
+		System.out.println(allMatch());
+		System.out.println(anyMatch());
+		System.out.println(noneMatch());
+	}
+
+}
