@@ -1,0 +1,25 @@
+// Filter is used to filter data it takes predicates functional interface as an input
+
+package java8;
+
+import java.util.List;
+import static java.util.stream.Collectors.*;
+
+public class StreamFilterExample {
+
+	public static List<Student> filterStudents(){
+		
+		return StudentDataBase.getAllStudents().stream()
+		.filter(student -> student.getGender().equals("female"))
+		.collect(toList());
+	
+		
+	}
+	
+	public static void main(String[] args) {
+
+		System.out.println("filterStudents : "+ filterStudents());
+		filterStudents().forEach(System.out::println);
+	}
+
+}
