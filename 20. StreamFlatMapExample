@@ -1,0 +1,27 @@
+package java8;
+
+import java.util.List;
+import static java.util.stream.Collectors.*;
+
+public class StreamFlatMapExample {
+
+	public static List<String> printStudentActivites(){
+		List<String> studentActivites = StudentDataBase.getAllStudents()
+				.stream()
+				.map(Student::getActivities)//Stream<List<String>>
+				.flatMap(List::stream)//Stream<String>
+				.collect(toList());
+		return studentActivites;
+		
+	}
+	public static void main(String[] args) {
+
+		System.out.println(printStudentActivites());
+	}
+
+}
+
+
+//flatMap is used in scenarios where each and every element in the stream
+//,it represents a list or set , so in this kind of scenerios ,we will use flatMap insted of
+//regular map.
