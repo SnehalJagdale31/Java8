@@ -1,0 +1,50 @@
+package java8;
+
+import static java.util.stream.Collectors.toList;
+
+import java.util.List;
+
+public class ParallelStreamExample1 {
+	
+	
+	
+	public static List<String> sequentialPrintStudentActivities(){
+		long startTime = System.currentTimeMillis();
+		List<String> studentActivites = StudentDataBase.getAllStudents()
+				.stream()
+				.map(Student::getActivities)//Stream<List<String>>
+				.flatMap(List::stream)//Stream<String>
+				.sorted()
+				.collect(toList());
+		long endTime = System.currentTimeMillis();
+		System.out.println("Duration to execute the sequential pipeline"+ (endTime - startTime));
+		return studentActivites;
+		
+	}
+	
+
+	public static List<String> parallelPrintStudentActivities(){
+		 long startTime1 = System.currentTimeMillis();
+		List<String> studentActivites = StudentDataBase.getAllStudents()
+				.stream()
+				.parallel()
+				.map(Student::getActivities)//Stream<List<String>>
+				.flatMap(List::stream)//Stream<String>
+				.sorted()
+				.collect(toList());
+		long endTime = System.currentTimeMillis();
+		System.out.println("Duration to execute the parallel pipeline"+ (endTime - startTime1));
+		
+		return studentActivites;
+		
+	}
+
+	public static void main(String[] args) {
+		
+		System.out.println("sequential Print Student Activities : "+ sequentialPrintStudentActivities());
+		System.out.println("parallel Print Student Activities"+parallelPrintStudentActivities());
+		
+
+	}
+
+}
