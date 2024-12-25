@@ -6,7 +6,9 @@ public class ImperativeVsDeclarativeExample1 {
 
 	public static void main(String[] args) {
 
-		
+
+
+
 //		Imperative - How style of Programming
 		int sum =0;
 		for(int i=0; i<= 100; i++) {
